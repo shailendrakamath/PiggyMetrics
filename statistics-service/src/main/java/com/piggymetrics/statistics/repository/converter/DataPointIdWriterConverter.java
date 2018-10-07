@@ -1,3 +1,4 @@
+/*
 package com.piggymetrics.statistics.repository.converter;
 
 import com.mongodb.BasicDBObject;
@@ -22,3 +23,4 @@ public class DataPointIdWriterConverter implements Converter<DataPointId, DBObje
 		return object;
 	}
 }
+*/

@@ -1,9 +1,12 @@
 package com.piggymetrics.statistics.domain.timeseries;
 
 import com.piggymetrics.statistics.domain.Currency;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+/*import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;*/
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.math.BigDecimal;
 import java.util.Map;
 import java.util.Set;
@@ -12,14 +15,17 @@ import java.util.Set;
  * Represents daily time series data point containing
  * current account state
  */
-@Document(collection = "datapoints")
+/*@Document(collection = "datapoints")*/
+@Entity
 public class DataPoint {
 
 	@Id
 	private DataPointId id;
 
+	@OneToMany
 	private Set<ItemMetric> incomes;
 
+	@OneToMany
 	private Set<ItemMetric> expenses;
 
 	private Map<StatisticMetric, BigDecimal> statistics;
@@ -34,6 +40,7 @@ public class DataPoint {
 		this.id = id;
 	}
 
+
 	public Set<ItemMetric> getIncomes() {
 		return incomes;
 	}
@@ -41,6 +48,7 @@ public class DataPoint {
 	public void setIncomes(Set<ItemMetric> incomes) {
 		this.incomes = incomes;
 	}
+
 
 	public Set<ItemMetric> getExpenses() {
 		return expenses;

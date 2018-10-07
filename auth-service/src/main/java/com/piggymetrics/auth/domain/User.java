@@ -1,13 +1,16 @@
 package com.piggymetrics.auth.domain;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+/*import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;*/
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.List;
 
-@Document(collection = "users")
+/*@Document(collection = "users")*/
+@Entity
 public class User implements UserDetails {
 
 	@Id

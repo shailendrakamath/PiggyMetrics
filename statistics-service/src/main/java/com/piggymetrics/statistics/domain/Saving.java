@@ -1,8 +1,10 @@
 package com.piggymetrics.statistics.domain;
 
+import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
+@Embeddable
 public class Saving {
 
 	@NotNull

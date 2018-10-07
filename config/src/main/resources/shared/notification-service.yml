@@ -3,7 +3,7 @@ security:
     client:
       clientId: notification-service
       clientSecret: ${NOTIFICATION_SERVICE_PASSWORD}
-      accessTokenUri: http://auth-service:5000/uaa/oauth/token
+      accessTokenUri: http://localhost:5000/uaa/oauth/token
       grant-type: client_credentials
       scope: server
 
@@ -26,13 +26,9 @@ backup:
     attachment: backup.json
 
 spring:
-  data:
-    mongodb:
-      host: notification-mongodb
-      username: user
-      password: ${MONGODB_PASSWORD}
-      database: piggymetrics
-      port: 27017
+  h2:
+    console:
+      enabled: true
   mail:
     host: smtp.gmail.com
     port: 465

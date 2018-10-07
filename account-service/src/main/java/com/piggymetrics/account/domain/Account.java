@@ -2,34 +2,47 @@ package com.piggymetrics.account.domain;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+/*
+import org.springframework.data.mongodb.core.mapping.Document;
+*/
+
+import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
-@Document(collection = "accounts")
+/*@Document(collection = "accounts")*/
+@Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Account {
 
 	@Id
+	@GeneratedValue
+	private Long id;
+
 	private String name;
 
 	private Date lastSeen;
 
 	@Valid
+
+	@OneToMany(cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY)
 	private List<Item> incomes;
 
 	@Valid
+	@OneToMany(cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY)
 	private List<Item> expenses;
 
 	@Valid
 	@NotNull
+	@Embedded
 	private Saving saving;
 
-	@Length(min = 0, max = 20_000)
+	@Length(min = 0, max = 20000)
 	private String note;
 
 	public String getName() {

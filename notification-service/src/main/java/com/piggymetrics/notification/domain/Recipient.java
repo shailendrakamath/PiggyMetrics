@@ -1,14 +1,19 @@
 package com.piggymetrics.notification.domain;
 
 import org.hibernate.validator.constraints.Email;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+/*import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;*/
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.Map;
 
+/*
 @Document(collection = "recipients")
+*/
+@Entity
 public class Recipient {
 
 	@Id

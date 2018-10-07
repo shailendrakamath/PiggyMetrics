@@ -3,7 +3,16 @@
  */
 
 print('dump start');
-
+use admin
+db.createUser(
+  {
+    user: "user",
+    pwd: "abc123",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" },
+             { role: "dbAdminAnyDatabase", db: "admin" },
+             { role: "readWriteAnyDatabase", db: "admin" } ]
+  }
+)
 db.accounts.update(
     { "_id": "demo" },
     {

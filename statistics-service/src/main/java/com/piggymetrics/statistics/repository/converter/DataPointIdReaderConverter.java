@@ -1,3 +1,4 @@
+/*
 package com.piggymetrics.statistics.repository.converter;
 
 import com.mongodb.DBObject;
@@ -19,3 +20,4 @@ public class DataPointIdReaderConverter implements Converter<DBObject, DataPoint
 		return new DataPointId(account, date);
 	}
 }
+*/

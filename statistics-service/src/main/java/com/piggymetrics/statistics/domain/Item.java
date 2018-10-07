@@ -2,13 +2,17 @@ package com.piggymetrics.statistics.domain;
 
 import org.hibernate.validator.constraints.Length;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
+@Entity
 public class Item {
 
 	@NotNull
 	@Length(min = 1, max = 20)
+	@Id
 	private String title;
 
 	@NotNull
